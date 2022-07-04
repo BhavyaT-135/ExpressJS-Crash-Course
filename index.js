@@ -1,25 +1,14 @@
 const express = require('express');
 const path = require('path');
+const members = require('./Members');
+const logger = require('./middleware/logger');
 
 const app = express();
 
-const members = [{
-        id: 1,
-        name: 'John Doe',
-        status: 'active'
-    },
-    {
-        id: 2,
-        name: 'Bhavya Tewari',
-        status: 'inactive'
-    },
-    {
-        id: 3,
-        name: 'Bhavya Verma',
-        status: 'active'
-    }
-]
+//Init middleware
+app.use(logger);
 
+//Gets all members
 app.get('/api/members', (req, res) => {
     res.json(members);
  })
