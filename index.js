@@ -3,11 +3,8 @@ const path = require('path');
 
 const app = express();
 
-//Route for the index page
-//With every route, we will have access to the req and res objects
-app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname, 'public', '/index.html'));
-});
+//Set sraric folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
 
